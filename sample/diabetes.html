@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diabetes Prediction System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      #outcome {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        display: none;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Diabetes Prediction System</h1>
+      <form id="predictionForm">
+        <label for="pregnancies">Pregnancies:</label>
+        <input type="text" id="pregnancies" name="pregnancies" required />
+
+        <label for="glucose">Glucose:</label>
+        <input type="text" id="glucose" name="glucose" required />
+
+        <label for="bloodPressure">Blood Pressure:</label>
+        <input type="text" id="bloodPressure" name="bloodPressure" required />
+
+        <label for="skinThickness">Skin Thickness:</label>
+        <input type="text" id="skinThickness" name="skinThickness" required />
+
+        <label for="insulin">Insulin:</label>
+        <input type="text" id="insulin" name="insulin" required />
+
+        <label for="bmi">BMI:</label>
+        <input type="text" id="bmi" name="bmi" required />
+
+        <label for="diabetesPedigree">Diabetes Pedigree Function:</label>
+        <input
+          type="text"
+          id="diabetesPedigree"
+          name="diabetesPedigree"
+          required
+        />
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required />
+
+        <button type="button" onclick="predictDiabetes()">Predict</button>
+      </form>
+      <div id="outcome">Outcome: <span id="predictionResult"></span></div>
+    </div>
+
+    <script>
+      function predictDiabetes() {
+        // Validate input fields
+        const form = document.getElementById("predictionForm");
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // You can add JavaScript code here to calculate the prediction based on the input fields.
+        // For simplicity, I'll just show a random prediction (0 or 1).
+        const prediction = Math.random() < 0.5 ? "No Diabetes" : "Diabetes";
+
+        // Display the prediction result
+        const predictionResult = document.getElementById("predictionResult");
+        predictionResult.textContent = prediction;
+
+        const outcome = document.getElementById("outcome");
+        outcome.style.display = "block";
+        outcome.style.backgroundColor =
+          prediction === "Diabetes" ? "#e74c3c" : "#2ecc71"; // Red for Diabetes, Green for No Diabetes
+      }
+    </script>
+  </body>
+</html>
