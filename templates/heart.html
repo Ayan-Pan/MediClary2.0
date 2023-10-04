@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% block title %} Heart Disease {%endblock %} {% block
+head %} {% endblock %} {%block content %}
+<div class="heading">
+  <h1>Heart Disease Prediction using ML</h1>
+</div>
+<div class="container my-3">
+  <form class="form-inline" action="/heart" method="post">
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Age</label>
+      <input type="text" name="data" id="typeText" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Sex</label>
+      <input type="text" name="data" id="typeText" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Chest Pain types</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Resting Blood Pressure</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Serum Cholestoral in mg/dl</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Fasting Blood Sugar</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Electrocardiographic results</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Maximum Heart Rate achieved</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Exercise Induced Angina</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">ST depression induced <br> by exercise</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Slope of the peak <br> exercise ST segment</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Major vessels colored <br> by flourosopy</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Thalassemia </label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="checkbtn">
+      <button type="submit" class="btn btn-primary btn-lg">Check</button>
+    </div>
+  </form>
+
+  <div class="alert alert-{{color}} p-5" role="alert">
+    <h4><b>{{msg}}</b></h4>
+  </div>
+</div>
+
+{% endblock %}

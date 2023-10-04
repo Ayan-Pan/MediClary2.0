@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block title %} Diabetes {%endblock %} {% block head
+%} {% endblock %} {%block content %}
+<div class="heading">
+  <h1>Diabetes Prediction using ML</h1>
+</div>
+<div class="container my-3">
+  <form class="form-inline" action="/" method="post">
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Number of Pregnancies</label
+      >
+      <input type="text" name="data" id="typeText" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Glucose Level</label>
+      <input type="text" name="data" id="typeText" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Blood Pressure value</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Skin Thickness value</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Insulin Level</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">BMI value</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText"
+        >Diabetes Pedigree Function</label
+      >
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Age of the Person</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="checkbtn">
+      <button type="submit" class="btn btn-primary btn-lg">Check</button>
+    </div>
+  </form>
+
+  <div class="alert alert-{{color}} p-5" role="alert">
+    <h4><b>{{msg}}</b></h4>
+  </div>
+</div>
+
+{% endblock %}

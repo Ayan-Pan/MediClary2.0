@@ -1,0 +1,128 @@
+{% extends 'base.html' %} {% block title %} Parkinson's Disease {%endblock %} {%
+block head %} {% endblock %} {%block content %}
+<div class="heading">
+  <h1>Parkinson's Disease Prediction using ML</h1>
+</div>
+<div class="container my-3">
+  <form class="form-inline" action="/parkinson" method="post">
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:FO(Hz)</label>
+      <input type="text" name="data" id="typeText" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:Fhi(Hz)</label>
+      <input type="text" name="data" id="typeText" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:Flo(Hz)</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:Jitter(%)</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:Jitter(Abs)</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:RAP</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:PPQ</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Jitter:DDP</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:Shimmer</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:Shimmer(dB)</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Shimmer:APQ3</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Shimmer:APQ5</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">MDVP:APQ</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Shimmer:DDA</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">NHR</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">HNR</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">RPDE</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">DFA</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Spread1</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">Spread2</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">D2</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="form-group mb-2">
+      <label class="form-label field" for="typeText">PPE</label>
+      <input type="text" id="typeText" name="data" class="form-control field" />
+    </div>
+
+    <div class="checkbtn">
+      <button type="submit" class="btn btn-primary btn-lg">Check</button>
+    </div>
+  </form>
+
+  <div class="alert alert-{{color}} p-5" role="alert">
+    <h4><b>{{msg}}</b></h4>
+  </div>
+</div>
+
+{% endblock %}

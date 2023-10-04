@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
@@ -10,67 +10,53 @@ heart_disease_model = pickle.load(open("Saved_Models/heart_disease_model.sav", "
 parkinsons_model = pickle.load(open("Saved_Models/parkinsons_model.sav", "rb"))
 
 
-def validate(data, model, msg_lst):
-    if len(data[data == ""]) > 0:
-        print(len(data[data == ""]) > 0)
-        msg = "Please enter all the fields!"
-        color = "warning"
-    else:
-        num_data = [eval(i) for i in data]
-        prediction = model.predict([num_data])
+def validate(request, model, msg_lst):
+    msg = "Let's check!"
+    color = "info"
 
-        if prediction[0] == 1:
-            msg = msg_lst[0]
-            color = "danger"
+    if request.method == "POST":
+        data = np.array(request.form.getlist("data"))
+        if len(data[data == ""]) > 0:
+            msg = "Please enter all the fields!"
+            color = "warning"
         else:
-            msg = msg_lst[1]
-            color = "success"
+            num_data = [eval(i) for i in data]
+            prediction = model.predict([num_data])
+
+            if prediction[0] == 1:
+                msg = msg_lst[0]
+                color = "danger"
+            else:
+                msg = msg_lst[1]
+                color = "success"
 
     return msg, color
 
 
 @app.route("/", methods=["GET", "POST"])
 def diabetes():
-    msg = "Let's check!"
-    color = "info"
-
-    if request.method == "POST":
-        data = np.array(request.form.getlist("data"))
-        msg_lst = ["The person is diabetic!", "The person is not diabetic!"]
-        msg, color = validate(data, diabetes_model, msg_lst)
-
+    msg_lst = ["The person is diabetic!", "The person is not diabetic!"]
+    msg, color = validate(request, diabetes_model, msg_lst)
     return render_template("diabetes.html", msg=msg, color=color)
 
 
 @app.route("/heart", methods=["GET", "POST"])
 def heart():
-    msg = "Let's check!"
-    color = "info"
-
-    if request.method == "POST":
-        data = np.array(request.form.getlist("data"))
-        msg_lst = [
-            "The person is having heart disease!",
-            "The person does not have heart disease!",
-        ]
-        msg, color = validate(data, heart_disease_model, msg_lst)
-
+    msg_lst = [
+        "The person is having heart disease!",
+        "The person does not have heart disease!",
+    ]
+    msg, color = validate(request, heart_disease_model, msg_lst)
     return render_template("heart.html", msg=msg, color=color)
 
 
 @app.route("/parkinson", methods=["GET", "POST"])
 def parkinson():
-    msg = "Let's check!"
-    color = "info"
-
-    if request.method == "POST":
-        data = np.array(request.form.getlist("data"))
-        msg_lst = [
-            "The person has Parkinson's disease!",
-            "The person does not have Parkinson's disease!",
-        ]
-        msg, color = validate(data, parkinsons_model, msg_lst)
-
+    msg_lst = [
+        "The person has Parkinson's disease!",
+        "The person does not have Parkinson's disease!",
+    ]
+    msg, color = validate(request, parkinsons_model, msg_lst)
     return render_template("parkinson.html", msg=msg, color=color)
 
 
